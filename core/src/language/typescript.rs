@@ -130,10 +130,8 @@ export const ReplacerFunc = (key: string, value: unknown): unknown => {{
             | SpecialRustType::F32
             | SpecialRustType::F64 => Ok("number".into()),
             SpecialRustType::Bool => Ok("boolean".into()),
-            SpecialRustType::U64
-            | SpecialRustType::I64
-            | SpecialRustType::ISize
-            | SpecialRustType::USize => {
+            SpecialRustType::U64 => Ok("bigint".into()),
+            SpecialRustType::I64 | SpecialRustType::ISize | SpecialRustType::USize => {
                 panic!("64 bit types not allowed in Typeshare")
             }
         }
